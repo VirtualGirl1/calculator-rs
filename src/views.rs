@@ -1,5 +1,6 @@
 use iced::{button, Button, Column, Row, Text};
 use crate::{Length, Message};
+use crate::styles::*;
 
 pub struct SimpleView {
     button_0: button::State,
@@ -33,21 +34,25 @@ impl SimpleView {
                         Button::new(&mut self.button_clear, Text::new("AC"))
                             .on_press(Message::ButtonACPressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_all_clear, Text::new("C"))
                             .on_press(Message::ButtonClearPressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_prct, Text::new("%"))
                             .on_press(Message::ButtonPrctPressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_plus, Text::new("+"))
                             .on_press(Message::ButtonPlusPressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .height(Length::Fill)
             )
@@ -57,21 +62,25 @@ impl SimpleView {
                         Button::new(&mut self.button_7, Text::new("7"))
                             .on_press(Message::Button7Pressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_8, Text::new("8"))
                             .on_press(Message::Button8Pressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_9, Text::new("9"))
                             .on_press(Message::Button9Pressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_min, Text::new("-"))
                             .on_press(Message::ButtonMinusPressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .height(Length::Fill)
             )
@@ -81,21 +90,25 @@ impl SimpleView {
                         Button::new(&mut self.button_4, Text::new("4"))
                             .on_press(Message::Button4Pressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_5, Text::new("5"))
                             .on_press(Message::Button5Pressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_6, Text::new("6"))
                             .on_press(Message::Button6Pressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_div, Text::new("\u{F7}"))
                             .on_press(Message::ButtonDivPressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .height(Length::Fill)
             )
@@ -105,21 +118,25 @@ impl SimpleView {
                         Button::new(&mut self.button_1, Text::new("1"))
                             .on_press(Message::Button1Pressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_2, Text::new("2"))
                             .on_press(Message::Button2Pressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_3, Text::new("3"))
                             .on_press(Message::Button3Pressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_mult, Text::new("\u{D7}"))
                             .on_press(Message::ButtonMultPressed)
                             .width(Length::Fill)
+                            .style(ButtonStyleDark)
                     )
                     .height(Length::Fill)
             )
@@ -129,16 +146,19 @@ impl SimpleView {
                         Button::new(&mut self.button_0, Text::new("0"))
                             .on_press(Message::Button0Pressed)
                             .width(Length::FillPortion(2))
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_point, Text::new("."))
                             .on_press(Message::ButtonPointPressed)
                             .width(Length::FillPortion(1))
+                            .style(ButtonStyleDark)
                     )
                     .push(
                         Button::new(&mut self.button_eql, Text::new("="))
                             .on_press(Message::ButtonEqlPressed)
                             .width(Length::FillPortion(1))
+                            .style(ButtonStyleDark)
                     )
                     .height(Length::Fill)
             )

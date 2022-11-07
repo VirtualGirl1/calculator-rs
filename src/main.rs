@@ -1,14 +1,17 @@
 mod views;
-use views::*;
+mod styles;
 
-use iced::{button, Button, Column, Container, Element, Length, Padding, Row, Sandbox, Scrollable, scrollable, Settings, Size, Text, text_input, TextInput};
+use views::*;
+use styles::*;
+
+use iced::{Color, Column, Container, Element, Length, Sandbox, Scrollable, scrollable, Settings, Text, text_input, TextInput};
 
 
 fn main() {
     let mut settings = Settings::default();
     settings.window.size = (200, 320);
 
-    Calc::run(settings).unwrap()
+    <Calc as Sandbox>::run(settings).unwrap()
 }
 
 
@@ -24,7 +27,7 @@ struct Calc {
 }
 
 #[derive(Debug, Clone)]
-enum Message {
+pub enum Message {
     TextChanged(String),
     Button0Pressed,
     Button1Pressed,
@@ -109,6 +112,7 @@ impl Sandbox for Calc {
                     &self.expression,
                     Message::TextChanged
                     )
+                    .style(InputStyleDark)
                     .size(25)
             )
             .push(view)
@@ -116,6 +120,10 @@ impl Sandbox for Calc {
             .height(Length::Fill)
             .into()
 
+    }
+
+    fn background_color(&self) -> Color {
+        Color::from_rgb8(0x2b, 0x2b, 0x2b)
     }
 }
 
@@ -127,14 +135,18 @@ fn get_previous<'a>(state: &'a mut scrollable::State, prev_vec: &mut Vec<String>
             Container::new(
                 Text::new(" ")
                     .size(25)
-                    .height(Length::Units(30))
             )
+                .height(Length::Units(30))
         );
     }
     else {
         for str in prev_vec {
             return_element = return_element.push(
-                Text::new(&*str)
+                Container::new(
+                    Text::new(&*str)
+                        .size(25)
+                )
+                    .height(Length::Units(30))
             );
         }
     }
